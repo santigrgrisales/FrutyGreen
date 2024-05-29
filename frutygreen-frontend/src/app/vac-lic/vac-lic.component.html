@@ -1,0 +1,92 @@
+<div class="container">
+  <br>
+  <h1>Gestionar vacaciones y licencias</h1>
+  <br>
+
+ <div class="destinos">
+   <div class="destino">
+       <button type="button" class="btn btn-outline-success" (click)="abrirRegistro2()">Registrar Vacaciones a un trabajador</button>
+       <br>
+       <br>
+       <button type="button" class="btn btn-outline-success" (click)="abrirRegistro()">Registrar Licencia a un trabajador</button>
+    </div>
+  </div>
+</div>
+ 
+<div class="modal" id="registroV" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Registre los datos del permiso de licencia</h5>
+          <button type="button" class="btn-close" (click)="cerrarRegistro()" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="aIdentificacion" class="form-label">Identificacion del empleado</label>
+              <input id="aIdentificacion" class="form-control" type="number" [(ngModel)]="vac_lic.identificacion" name="identificacion">
+            </div>
+            
+            <div class="mb-3">
+              <label for="inputTipo" class="form-label">Tipo</label>
+              <input class="form-control" type="text" [(ngModel)]="vac_lic.tipo" name="tipo">
+            </div>
+            <div class="mb-3">
+              <label for="inputFecha_inicio" class="form-label">Fecha Inicio</label>
+              <input class="form-control" type="date" [(ngModel)]="vac_lic.fecha_inicio" name="fecha_inicio">
+            </div>
+            <div class="mb-3">
+              <label for="inputFecha_fin" class="form-label">Fecha Fin</label>
+              <input class="form-control" type="date" [(ngModel)]="vac_lic.fecha_fin" name="fecha_fin">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="guardarRegistro()">Guardar registro</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ <!-- //Registro de un persiso de vacaciones  -->
+
+ <div class="modal" id="registroV2" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Registre los datos del permiso por vacaciones</h5>
+          <button type="button" class="btn-close" (click)="cerrarRegistro2()" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="aIdentificacion" class="form-label">Identificacion del empleado</label>
+              <input id="aIdentificacion" class="form-control" type="number" [(ngModel)]="vac_lic2.identificacion" name="identificacion">
+            </div>
+            
+            <div class="mb-3">
+                <label for="aIdentificacion" class="form-label">Tipo</label>
+                <a id="aIdentificacion" class="form-control" >{{vac_lic2.tipo}}</a>
+              </div>
+            <div class="mb-3">
+              <label for="inputFecha_inicio" class="form-label">Fecha Inicio</label>
+              <input class="form-control" type="date" [(ngModel)]="vac_lic2.fecha_inicio" name="fecha_inicio">
+            </div>
+            <div class="mb-3">
+              <label for="inputFecha_fin" class="form-label">Fecha Fin</label>
+              <input class="form-control" type="date" [(ngModel)]="vac_lic2.fecha_fin" name="fecha_fin">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="guardarRegistro2()">Guardar registro</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<router-outlet></router-outlet>

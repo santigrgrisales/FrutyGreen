@@ -1,0 +1,78 @@
+/* General styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 2.5rem; /* Increased size */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif; /* Font for the brand */
+}
+
+.logo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+/* Navbar links */
+.navbar .nav-link {
+  color: #51ad6d !important;
+  font-size: 1.3rem; /* Increased size */
+  font-weight: 600; /* Make it bold */
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s ease;
+  font-family: 'Lora', serif; /* Font for the nav links */
+}
+
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #51ad6d;
+  transition: width 0.4s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+  left: 0;
+  background-color: #51ad6d;
+}
+
+.navbar .nav-link:hover {
+  color: #000000 !important;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .nav-link.active {
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%280, 0, 0, 0.7%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+

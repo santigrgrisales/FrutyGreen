@@ -1,0 +1,97 @@
+
+  <div class="container">
+    <h1>Gestionar Empleados</h1>
+  
+  <div class="destinos">
+  <div class="destino">
+    <label for="inputIdentificacion" class="form-label">Ingresa la identificacion del empleado:</label>
+    <input class="form-control" type="number" id="inputIdentificacion" [(ngModel)]="ide" name="identificacion" required (keydown.enter)="debug();abrirModal()">
+    <p>Presiona la tecla ENTER</p>
+  </div>
+  </div>
+
+
+
+  <div class="modal" id="busquedaModal" tabindex="-1" [hidden]="(this.empleado === this.vacio)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">El empleado que has buscado:</h5>
+          <a type="button" class="btn-close" (click)="cerrarModal()" data-bs-dismiss="modal" aria-label="Close"></a>
+        </div>
+        <div class="modal-body">  
+<div class="user-profile">
+    <div class="profile-header">
+      <div class="avatar"></div>
+      <div class="user-info">
+        <h2>{{empleado.nombre}} {{empleado.apellidos}}</h2>
+        <p class="user-id">CC. {{perfilEmpleado.identificacion}}</p>
+      </div>
+    </div>
+    <div class="profile-details">
+      <div class="detail">
+        <h3>Última Evaluación</h3>
+        <p>{{perfilEmpleado.ultima_evaluacion}}</p>
+      </div>
+      <div class="detail">
+        <h3>Informacion de Contacto</h3>
+        <p>{{perfilEmpleado.descripcion}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="abrirRegistroA()">Actualizar información</button>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- formulario de actualizacion -->
+
+<div class="modal" id="actualizar" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registre los datos</h5>
+        <button type="button" class="btn-close" (click)="cerrarRegistroA()" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="aIdentificacion" class="form-label">Documento de quien hace la reserva</label>
+            <a id="aIdentificacion" class="form-control" >{{perfilEmpleado.identificacion}}</a>
+          </div>
+          
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input class="form-control" type="text" [(ngModel)]="nuevaDescripcion.correo" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="inputDomicilio" class="form-label">Domicilio</label>
+            <input class="form-control" type="text" [(ngModel)]="nuevaDescripcion.domicilio" name="domicilio">
+          </div>
+          <div class="mb-3">
+            <label for="inputTelefono" class="form-label">Telefono</label>
+            <input class="form-control" type="number" [(ngModel)]="nuevaDescripcion.telefono" name="telefono">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="actualizarRegistro()">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>  

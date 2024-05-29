@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Eliminar un empleado</h1>
+
+<div class="destinos">
+<div class="destino">
+  <label for="inputIdentificacion" class="form-label">Identificacion del empleado por eliminar:</label>
+  <input class="form-control" type="number" id="inputIdentificacion" [(ngModel)]="ide" name="identificacion" required (keydown.enter)="abrirModal(); debug()">
+  <p>Presiona la tecla ENTER</p>
+</div>
+</div>
+    
+    
+<div class="modal" id="busquedaModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">El empleado que has buscado:</h5>
+          <a type="button" class="btn-close" (click)="cerrarModal()" data-bs-dismiss="modal" aria-label="Close"></a>
+        </div>
+        <div class="modal-body">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Identificacion</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>{{empleado.identificacion}}</td>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.apellidos}}</td>
+                        <td>{{empleado.cargo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="eliminarEmpleado()" [hidden]="this.empleado === this.limpiar">Eliminar Empleado </button>
+                <a class="noEncontro" [hidden]="this.empleado != this.limpiar"> Empleado no encontrado</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <router-outlet></router-outlet>

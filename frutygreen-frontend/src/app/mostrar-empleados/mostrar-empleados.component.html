@@ -1,0 +1,83 @@
+
+<div class="container">
+  <h1>Gestionar Empleados</h1>
+
+<div class="destinos">
+<div class="destino">
+  <a type="button" class="btn btn-outline-success" (click)="abrirRegistro()">Registrar un nuevo empleado</a>
+    <p>Ingresa los datos de un nuevo empleado</p>
+</div>
+<div class="destino">
+  <a type="button" class="btn btn-outline-success" href="/empleadoDelete">Eliminar Empleado</a>
+    <p>Elimina un empleado del sistema</p>
+</div>
+</div>
+</div>
+
+<div  class="content-wrapper">
+  <marquee><p class="colorp">Aquí verás todo el personal de FrutyGreen</p></marquee>
+  <div class="table-container">
+    <table class="custom-table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Identificación</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Cargo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of empleados" class="table-row">
+          <td>{{i.identificacion}}</td>
+          <td>{{i.nombre}}</td>
+          <td>{{i.apellidos}}</td>
+          <td>{{i.cargo}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+
+<div class="modal" id="registro" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registra aquí los datos para un nuevo empleado</h5>
+        <a type="button" class="btn-close" (click)="cerrarRegistro()" data-bs-dismiss="modal" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <form #registroForm="ngForm">
+          <div class="mb-3">
+            <label for="inputIdentificacion" class="form-label">Identificación</label>
+            <input class="form-control" type="number" id="inputIdentificacion" [(ngModel)]="empleado.identificacion" name="identificacion" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre</label>
+            <input class="form-control" type="text" id="inputNombre" [(ngModel)]="empleado.nombre" name="nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputApellidos" class="form-label">Apellidos</label>
+            <input class="form-control" type="text" id="inputApellidos" [(ngModel)]="empleado.apellidos" name="apellidos" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputCargo" class="form-label">Cargo</label>
+            <input class="form-control" type="text" id="inputCargo" [(ngModel)]="empleado.cargo" name="cargo" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="guardarRegistro()">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

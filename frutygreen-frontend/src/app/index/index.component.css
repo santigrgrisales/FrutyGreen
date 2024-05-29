@@ -1,0 +1,75 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* General container styling */
+  .contenedor {
+    width: 94%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    padding: 60px 0;
+  }
+  
+  /* Header styling */
+  .header {
+    height: 55vh;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  /* Title styling with thin black border around text */
+  .titulo {
+    color: #51ad6d;
+    font-size: 60px;
+    margin-bottom: 15px;
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Thin black border effect */
+  }
+  
+  /* Slogan styling with thin black border around text */
+  .slogan {
+    color: #51ad6d;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Thin black border effect */
+  }
+  
+  /* Header content alignment */
+  .head {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #000;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media screen and (max-width: 800px) {
+    .titulo {
+      font-size: 40px;
+    }
+  
+    .img-galeria {
+      width: 45%;
+    }
+  }
+  

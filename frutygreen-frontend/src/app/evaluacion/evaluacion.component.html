@@ -1,0 +1,73 @@
+<div class="container" >
+   <h1>Realizar evaluacion de un empleado </h1>
+   <br>
+   <div class="destinos">
+    <div class="destino">
+    
+      <div class="mb-3">
+        <label for="inputIdentificacion" class="form-label">Identificación</label>
+        <input class="form-control" type="number" id="inputIdentificacion" [(ngModel)]="evaluacion.empleado.identificacion" name="identificacion" required>
+      </div>
+       </div>
+       <div class="destino">
+      <div class="mb-3">
+        <label for="inputDescripcion" class="form-label">Descripcion</label>
+        <input class="form-control" type="text" id="inputHoraEntrada" [(ngModel)]="evaluacion.descripcion" name="descripcion" required>
+      </div>
+      </div>
+     </div>
+     <div class="button-container">
+      <a type="button" class="btn btn-outline-success" (click)="guardarRegistro()">Guardar</a>
+    </div>
+  </div>
+
+  <div class="modal" id="registro" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Evaluacion Registrada</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarRegistro()"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID_Evaluacion</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr >
+                    <td>{{evaluacionr[0]}}</td>
+               </tr>
+              </tbody>
+
+              
+              <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID_Empleado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{evaluacionr[1]}}</td>
+                  </tr>
+              </tbody>
+              <thead class="table-dark">
+                <tr>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr >
+                    <td>{{evaluacionr[2]}}</td>
+                    </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

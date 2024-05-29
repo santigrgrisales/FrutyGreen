@@ -1,0 +1,71 @@
+<div class="container">
+  <h1>Registrar Turno</h1>
+
+<div class="destinos">
+<div class="destino">
+  <a type="button" class="btn btn-outline-success" (click)="abrirRegistro()">Nuevo turno</a>
+    <p>Registra la jornada laboral del empleado</p>
+</div>
+</div>
+</div>
+<br>
+
+<div  class="content-wrapper">
+    <marquee><p class="colorp">Aquí verás todos los turnos registrados en el mes actual</p></marquee>
+<div class="table-container">
+  <table class="custom-table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" class="header-id">ID Turno</th>
+        <th scope="col" class="header-id">ID Empleado</th>
+        <th scope="col" class="header-hour">Hora Entrada</th>
+        <th scope="col" class="header-hour">Hora Salida</th>
+        <th scope="col" class="header-payment">Pago</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of turnos" class="table-row">
+        <td>{{i.id_turno}}</td>
+        <td>{{i.empleado.identificacion}}</td>
+        <td>{{i.hora_entrada}}</td>
+        <td>{{i.hora_salida}}</td>
+        <td>$COP {{i.pago}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    
+</div>
+
+
+<div class="modal" id="registro" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registra aquí un nuevo turno</h5>
+        <a type="button" class="btn-close" (click)="cerrarRegistro()" data-bs-dismiss="modal" aria-label="Close"></a>
+      </div>
+      <div class="modal-body">
+        <form #registroForm="ngForm">
+          <div class="mb-3">
+            <label for="inputIdentificacion" class="form-label">Identificación</label>
+            <input class="form-control" type="number" id="inputIdentificacion" [(ngModel)]="turno.empleado.identificacion" name="identificacion" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Hora de Entrada</label>
+            <input class="form-control" type="datetime-local" id="inputHoraEntrada" [(ngModel)]="turno.hora_entrada" name="horaEntrada" required>
+          </div>
+          <div class="mb-3">
+            <label for="inputApellidos" class="form-label">Hora de salida</label>
+            <input class="form-control" type="datetime-local" id="inputHoraSalida" [(ngModel)]="turno.hora_salida" name="horaSalida" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="guardarRegistro()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

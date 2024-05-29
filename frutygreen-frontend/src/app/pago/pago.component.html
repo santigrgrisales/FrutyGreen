@@ -1,0 +1,122 @@
+<div class="container">
+
+  <h1 class="header-text">Registra aquí un pago para un empleado</h1>
+  <div class="destinos">
+
+<div class ="destino">
+ <div class="mb-3">
+  <label for="selectMes" class="form-label">mes del pago por realizar: </label>
+  <select class="form-control" id="selectMes" [(ngModel)]="mes" name="mes" required>
+    <option *ngFor="let opcion of opcionesMes" [value]="opcion.id">
+      {{ opcion.nombre }}
+    </option>
+  </select>
+
+ </div>
+</div>
+<div class="destino">
+<div class="mb-3">
+  <label for="inputIdentificacion" class="form-label">Identificación del empleado: </label>
+  <input class="form-control" type="number" id="inputIdentificacion" [(ngModel)]="enviarPago.empleado.identificacion" name="identificacion" required>
+</div>
+</div> 
+</div> <!--cierra el div de destinos-->
+<div class="button-container">
+  <a type="button" class="btn btn-outline-success" (click)="debug();guardarRegistro()">Crear Pago</a>
+</div>
+</div > <!--cierra el div de container-->
+
+
+
+<div class="modal" id="registro" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Pago Registrado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cerrarRegistro()"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead class="table-header">
+            <tr>
+              <th scope="col">ID_Pago</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pagor[0]}}</td>
+            </tr>
+          </tbody>
+          <thead class="table-header">
+            <tr>
+              <th scope="col">ID_Empleado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pagor[1]}}</td>
+            </tr>
+          </tbody>
+          <thead class="table-header">
+            <tr>
+              <th scope="col">SALARIO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pagor[2]}}</td>
+            </tr>
+          </tbody>
+          <thead class="table-header">
+            <tr>
+              <th scope="col">MES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pagor[3]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <!-- Modal Footer -->
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<marquee class="colorp"><h2>Aquí verás todos los pagos realizados en el mes actual</h2></marquee>
+<br>
+<br>
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="header-id">ID Pago</th>
+        <th class="header-id">ID Empleado</th>
+        <th class="header-salary">Salario</th>
+        <th class="header-month">Mes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of data" class="table-row">
+        <td>{{i.id_pago}}</td>
+        <td>{{i.empleado.identificacion}}</td>
+        <td>$COP {{i.salario}}</td>
+        <td>{{i.mes}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<br>
+<br>
+<br>
+
+
+
+
+<router-outlet></router-outlet>
